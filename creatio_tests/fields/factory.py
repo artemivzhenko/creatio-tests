@@ -20,15 +20,16 @@ class FieldFactory:
         strict_title: bool,
         context: CheckContext,
         lookup_values: Optional[List[str]] = None,
+        required: Optional[bool] = None,
     ) -> BaseField:
         if field_type == FieldType.TEXT:
-            return TextField(code, title, readonly, strict_title, context)
+            return TextField(code, title, readonly, strict_title, context, required=required)
         if field_type == FieldType.NUMBER:
-            return NumberField(code, title, readonly, strict_title, context)
+            return NumberField(code, title, readonly, strict_title, context, required=required)
         if field_type == FieldType.BOOLEAN:
-            return BooleanField(code, title, readonly, strict_title, context)
+            return BooleanField(code, title, readonly, strict_title, context, required=required)
         if field_type == FieldType.DATETIME:
-            return DateTimeField(code, title, readonly, strict_title, context)
+            return DateTimeField(code, title, readonly, strict_title, context, required=required)
         if field_type == FieldType.LOOKUP:
-            return LookupField(code, title, readonly, strict_title, context, expected_options=lookup_values or [])
-        return TextField(code, title, readonly, strict_title, context)
+            return LookupField(code, title, readonly, strict_title, context, expected_options=lookup_values or [], required=required)
+        return TextField(code, title, readonly, strict_title, context, required=required)

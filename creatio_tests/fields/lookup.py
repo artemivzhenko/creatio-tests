@@ -15,10 +15,12 @@ class LookupField(BaseField):
         strict_title: bool,
         context,
         expected_options: Optional[List[str]] = None,
+        required: Optional[bool] = None,
     ):
-        super().__init__(code, title, readonly, strict_title, context)
+        super().__init__(code, title, readonly, strict_title, context, required=required)
         self.expected_options = expected_options or []
         self.overlay = OverlayService(self.ctx.driver, self.ctx.wait_timeout_sec, logger=self.log)
+
 
     def _probe_control(self, container: WebElement):
         try:

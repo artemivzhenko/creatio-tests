@@ -1,0 +1,9 @@
+{
+  "base_url": "https://your-creatio-domain.com",
+  "username": "admin",
+  "password": "P@ssw0rd",
+  "test_url": "/0/Shell/?autoOpenIdLogin=true#Card/Contacts_FormPage/edit/bb912869-4e0d-4111-af8f-477c772ba7da",
+  "headless": false,
+  "wait_timeout_sec": 180,
+  "debug": true
+}

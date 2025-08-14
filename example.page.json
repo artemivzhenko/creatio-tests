@@ -1,0 +1,32 @@
+{
+  "name": "Contacts_FormPage",
+  "wait_timeout_sec": 30,
+  "debug": true,
+  "fields": [
+    {
+      "type": "TEXT",
+      "code": "Dear",
+      "title": "Recipient's name",
+      "readonly": false,
+      "strict_title": true,
+      "required": false
+    },
+    {
+      "type": "DATETIME",
+      "code": "DateTimePicker_iniisf1",
+      "title": "Created on",
+      "readonly": true,
+      "strict_title": true,
+      "required": false
+    },
+    {
+      "type": "LOOKUP",
+      "code": "Type",
+      "title": "Type",
+      "readonly": false,
+      "strict_title": true,
+      "required": true,
+      "lookup_values": ["Contact person", "Customer", "Employee", "Supplier"]
+    }
+  ]
+}

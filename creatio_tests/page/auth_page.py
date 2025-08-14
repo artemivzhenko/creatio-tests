@@ -10,6 +10,10 @@ from selenium.webdriver.common.by import By
 
 from .field_index import FieldIndex
 
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+
+
 
 class CreatioAuthPage:
     def __init__(self, base_url: str, username: str, password: str, test_url: str, headless: bool = True, wait_timeout_sec: int = 30, debug: bool = False):
@@ -164,3 +168,18 @@ class CreatioAuthPage:
             self.driver.quit()
         except Exception:
             pass
+
+    def get_field_fresh(self, code: str):
+        try:
+            return self.driver.find_element(By.CSS_SELECTOR, f"[element-name='{code}']")
+        except NoSuchElementException:
+            return None
+
+    def await_field_present(self, code: str, timeout_sec: int = 30, poll_interval_sec: float = 0.25):
+        deadline = time.time() + timeout_sec
+        while time.time() < deadline:
+            el = self.get_field_fresh(code)
+            if el is not None:
+                return el
+            time.sleep(poll_interval_sec)
+        return None
