@@ -1,5 +1,7 @@
 Creatio UI Test Automation Framework
+
 Overview
+
 This project is an automation testing framework designed specifically for Creatio front-end UI.
 It allows you to easily create and run automated tests for Creatio pages without spending hours on manual regression checks.
 
